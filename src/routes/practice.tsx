@@ -45,7 +45,7 @@ function Practice() {
   const feedbackFn = useServerFn(getFeedback);
   const [userId, setUserId] = useState<string | null>(null);
   const [offset, setOffset] = useState(0);
-  const topic = TOPICS[(dayIndex + offset) % TOPICS.length];
+  const topic = TOPICS[(dayIndex + offset) % TOPICS.length] ?? TOPICS[0]!;
   const [recording, setRecording] = useState(false);
   const [transcript, setTranscript] = useState("");
   const [audioUrl, setAudioUrl] = useState<string | null>(null);

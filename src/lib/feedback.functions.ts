@@ -6,7 +6,7 @@ export const getFeedback = createServerFn({ method: "POST" })
     return { topic: String(d.topic).slice(0, 300), transcript: d.transcript };
   })
   .handler(async ({ data }) => {
-    const key = process.env.LOVABLE_API_KEY;
+    const key = process.env["LOVABLE_API_KEY"];
     if (!key) throw new Error("AI is not configured");
     const res = await fetch("https://ai.gateway.lovable.dev/v1/responses", {
       method: "POST",
